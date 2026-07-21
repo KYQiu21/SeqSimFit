@@ -1,33 +1,4 @@
-# SeqSimFit — consolidated formal version
-
-This release replaces the historical `simulator2.py`–`simulator7.py` branches with one maintained implementation.
-
-## What is retained
-
-- Rosetta, plmDCA, ESM-IF, ESM-2, ProGen2, and ProteinMPNN scoring.
-- One scorer or any weighted combination of scorers.
-- Independent per-scorer `ref_ratio`, `beta`, and explicit reference thresholds.
-- Multiple ProteinMPNN backbones without hard-coded `pdb_path1` / `pdb_path2` branches.
-- Tied homo-oligomer ProteinMPNN profiles from the former `simulator5.py` branch.
-- Uniform, MSA-restricted, binary, custom, and LG mutation proposals.
-- Accelerated birth-death, exact birth-death, Kimura, and Metropolis acceptance.
-- Independent simulation along phylogenetic-tree branches.
-- Legacy class name `seq_simulator` and the main legacy result attributes.
-
-## Important behavior
-
-Every raw model proxy is defined so that **lower is better**. It is converted to fitness by
-
-```python
-fitness = 1 / (1 + exp(beta * (proxy - threshold)))
-```
-
-By default, `threshold = initial_proxy * ref_ratio`, preserving the old project convention. For a clearer or safer threshold, set `reference_value` explicitly in the scorer configuration.
-
-ESM-IF has two modes:
-
-- `legacy_probability`: negative sum of assigned residue probabilities. This reproduces the old analyses.
-- `nll`: conventional negative log-likelihood. This is recommended for new analyses, but it will not numerically reproduce old runs.
+# SeqSimFit — sequence simulation under fitness constraints
 
 ## Installation / use
 
