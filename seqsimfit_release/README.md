@@ -99,7 +99,7 @@ sim = SequenceSimulator(
 )
 ```
 
-## 3. Two ProteinMPNN backbones (`simulator4.py` replacement)
+## 3. Two ProteinMPNN backbones
 
 ```python
 sim = SequenceSimulator(
@@ -129,7 +129,7 @@ sim = SequenceSimulator(
 )
 ```
 
-## 4. Tied dimer + another backbone (`simulator5.py` replacement)
+## 4. Tied dimer + another backbone
 
 ```python
 sim = SequenceSimulator(
